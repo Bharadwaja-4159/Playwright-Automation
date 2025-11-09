@@ -1,0 +1,20 @@
+{
+  "name": "playwright",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test tests/API.spec.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.50.1",
+    "@types/node": "^22.13.5"
+  },
+  "dependencies": {
+    "@cucumber/cucumber": "^11.3.0",
+    "exceljs": "^4.4.0"
+  }
+}
