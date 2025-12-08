@@ -5,20 +5,21 @@ test('practice', async ({ browser }) => {
     const page = await context.newPage();
     const product = page.locator(".card-body");
     const email = "xxxx@gmail.com";
-    const item = "IPHONE 13 PRO";
+    const item = "iphone 13 pro";
     const country = "Denmark";
     await page.goto("https://rahulshettyacademy.com/client");
     await page.locator("[type='email']").fill(email);
     await page.locator("[type='password']").fill("Reddy@123");
     await page.locator("[type='submit']").click();
     //await page.waitForLoadState('networkidle');
+    //await page.pause();
     await product.first().waitFor();
     const count = await product.count();
+    console.log(count);
     for (let i = 0; i < count; i++) {
         if (await product.nth(i).locator("b").textContent() === item) {
             //Add item to cart
             await product.nth(i).locator("text= Add To Cart").click();
-
             break;
         }
     }
@@ -29,7 +30,7 @@ test('practice', async ({ browser }) => {
     expect(bool).toBeTruthy();
     await page.locator("text=Checkout").click();
 
-    await page.locator("[placeholder*=Country]").pressSequentially("k");
+    await page.locator("[placeholder*=Country]").pressSequentially("india");
     await page.locator("[class*='results'] button").first().waitFor();
     const optionsCount = await page.locator("[class*='results'] button").count();
     console.log(optionsCount);
