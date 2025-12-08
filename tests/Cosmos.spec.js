@@ -13,5 +13,4 @@ test('Test Xpath', async ({browser }) => {
     } else {
         console.log(`${country} was already visited.`);
     }
-    await page.pause();
 });
